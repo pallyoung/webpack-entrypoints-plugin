@@ -1,0 +1,23 @@
+{
+  "name": "webpack-entrypoints-plugin",
+  "version": "1.0.0",
+  "description": "extract webpack entrypoints into a file after compiler done",
+  "main": "index.js",
+  "scripts": {
+    "test": "null"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pallyoung/webpack-entrypoints-plugin.git"
+  },
+  "keywords": [
+    "webpack",
+    "entry"
+  ],
+  "author": "Spencer Ye",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/pallyoung/webpack-entrypoints-plugin/issues"
+  },
+  "homepage": "https://github.com/pallyoung/webpack-entrypoints-plugin#readme"
+}
