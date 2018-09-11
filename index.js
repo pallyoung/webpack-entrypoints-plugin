@@ -5,7 +5,7 @@ class WebpackEntrypointsPlugin {
     this.path = options.path;
   }
   apply(compiler) {
-    compiler.hooks.done.tap(name,  (stats) =>{
+    compiler.hooks.done.tap(name, (stats) => {
       const chunkOnlyConfig = {
         assets: false,
         cached: false,
@@ -26,7 +26,7 @@ class WebpackEntrypointsPlugin {
       let data = {};
 
       if (fs.existsSync(path)) {
-        data = fs.readFileSync(path).toJSON();
+        data = JSON.parse(fs.readFileSync(path).toString());
 
       }
       for (let en in entrypoints) {
@@ -35,7 +35,7 @@ class WebpackEntrypointsPlugin {
           assets: entrypoints[en].assets,
         }
       }
-      fs.writeFileSync(path,JSON.stringify(data,null,'\t'));
+      fs.writeFileSync(path, JSON.stringify(data, null, '\t'));
     })
   }
 }
