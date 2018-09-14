@@ -3,6 +3,7 @@ const fs = require('fs');
 class WebpackEntrypointsPlugin {
   constructor(options) {
     this.path = options.path;
+    this.change = options.change;
   }
   apply(compiler) {
     compiler.hooks.done.tap(name, (stats) => {
@@ -35,7 +36,8 @@ class WebpackEntrypointsPlugin {
           assets: entrypoints[en].assets,
         }
       }
-      fs.writeFileSync(path, JSON.stringify(data, null, '\t'));
+      path && fs.writeFileSync(path, JSON.stringify(data, null, '\t'));
+      this.change && this.change(data);
     })
   }
 }
